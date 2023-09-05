@@ -1,3 +1,5 @@
+import model.Student;
+
 public class StudentMain {
 
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class StudentMain {
         studentFirst.year = 1996;
         studentFirst.mark = 8;
         studentFirst.gender = 'M';
-        studentFirst.nationality = "Armenian";
+        studentFirst.isArmenian = true;
 
         Student studentSecond = new Student();
 
@@ -18,7 +20,7 @@ public class StudentMain {
         studentSecond.year = 1998;
         studentSecond.mark = 7;
         studentSecond.gender = 'M';
-        studentSecond.nationality = "American";
+        studentSecond.isArmenian = false;
 
         Student studentThird = new Student();
 
@@ -27,7 +29,7 @@ public class StudentMain {
         studentThird.year = 2001;
         studentThird.mark = 9;
         studentThird.gender = 'F';
-        studentThird.nationality = "Polish";
+        studentThird.isArmenian = false;
 
         Student[] arrayStudents = {studentFirst, studentSecond, studentThird};
         int old = arrayStudents[0].year;
@@ -48,6 +50,7 @@ public class StudentMain {
                 mark = arrayStudents[i].mark;
                 name = arrayStudents[i].name;
             }
+
         }
         System.out.println("Name: " + name + " | Mark: " + mark);
 
@@ -58,9 +61,9 @@ public class StudentMain {
         }
 
         for (int i = 0; i < arrayStudents.length; i++) {
-            if (arrayStudents[i].nationality == "Armenian") {
+            if (arrayStudents[i].isArmenian) {
                 System.out.println(
-                        "Name: " + arrayStudents[i].name + " | Nationality: " + arrayStudents[i].nationality
+                        "Name: " + arrayStudents[i].name + " | IsArmenian: " + arrayStudents[i].isArmenian
                 );
             }
         }

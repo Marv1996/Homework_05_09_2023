@@ -1,71 +1,66 @@
+import Function.StudentFunction;
 import model.Student;
+import settings.StudentSettings;
 
 public class StudentMain {
 
     public static void main(String[] args) {
 
-        Student studentFirst = new Student();
+        StudentFunction studentFunction = new StudentFunction();
 
-        studentFirst.name = "Koryun";
-        studentFirst.surname = "Yenokyan";
-        studentFirst.year = 1996;
-        studentFirst.mark = 8;
-        studentFirst.gender = 'M';
-        studentFirst.isArmenian = true;
+        Student studentFirst = new StudentSettings().setStudentInfo(
+                "Koryun",
+                "Yenokyan",
+                1996,
+                8.8,
+                'M',
+                true
+        );
 
-        Student studentSecond = new Student();
+        Student studentSecond = new StudentSettings().setStudentInfo(
+                "Frank",
+                "Barton",
+                1998,
+                7.6,
+                'M',
+                false
+        );
 
-        studentSecond.name = "Frank";
-        studentSecond.surname = "Barton";
-        studentSecond.year = 1998;
-        studentSecond.mark = 7;
-        studentSecond.gender = 'M';
-        studentSecond.isArmenian = false;
-
-        Student studentThird = new Student();
-
-        studentThird.name = "Elina";
-        studentThird.surname = "Mickiewicz";
-        studentThird.year = 2001;
-        studentThird.mark = 9;
-        studentThird.gender = 'F';
-        studentThird.isArmenian = false;
+        Student studentThird = new StudentSettings().setStudentInfo(
+                "Elina",
+                "Mickiewicz",
+                2001,
+                9.2,
+                'F',
+                false
+        );
 
         Student[] arrayStudents = {studentFirst, studentSecond, studentThird};
-        int old = arrayStudents[0].year;
-        String name = arrayStudents[0].name;
 
-        for (int i = 0; i < arrayStudents.length; i++) {
-            if (arrayStudents[i].year < old) {
-                old = arrayStudents[i].year;
-                name = arrayStudents[i].name;
-            }
-        }
-        System.out.println("Name: " + name + " | Year: " + old);
-
-        int mark = arrayStudents[0].mark;
-
-        for (int i = 0; i < arrayStudents.length; i++) {
-            if (arrayStudents[i].mark < mark) {
-                mark = arrayStudents[i].mark;
-                name = arrayStudents[i].name;
-            }
-
-        }
-        System.out.println("Name: " + name + " | Mark: " + mark);
-
-        for (int i = 0; i < arrayStudents.length; i++) {
-            if (arrayStudents[i].gender == 'F') {
-                System.out.println("Name: " + arrayStudents[i].name + " | Gender: " + arrayStudents[i].gender);
-            }
-        }
-
-        for (int i = 0; i < arrayStudents.length; i++) {
-            if (arrayStudents[i].isArmenian) {
-                System.out.println(
-                        "Name: " + arrayStudents[i].name + " | IsArmenian: " + arrayStudents[i].isArmenian
-                );
-            }
-        }
+        System.out.println("First Student: ");
+        studentFirst.printStudentInfo();
+        System.out.println("------------------------------------------------------");
+        System.out.println("Second Student: ");
+        studentSecond.printStudentInfo();
+        System.out.println("------------------------------------------------------");
+        System.out.println("Third Student: ");
+        studentThird.printStudentInfo();
+        System.out.println("------------------------------------------------------");
+        System.out.println("Old Student: ");
+        studentFunction.printOldStudent(arrayStudents);
+        System.out.println("------------------------------------------------------");
+        System.out.println("Low Mark");
+        studentFunction.printLowMark(arrayStudents);
+        System.out.println("------------------------------------------------------");
+        System.out.println("Find Male");
+        studentFunction.findMaleStudent(arrayStudents);
+        System.out.println("------------------------------------------------------");
+        System.out.println("Find Female");
+        studentFunction.findFemaleStudent(arrayStudents);
+        System.out.println("------------------------------------------------------");
+        System.out.println("Find Armenian");
+        studentFunction.findArmenianStudent(arrayStudents);
+        System.out.println("------------------------------------------------------");
+        studentThird.printFullName();
     }
 }

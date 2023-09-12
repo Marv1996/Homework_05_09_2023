@@ -9,6 +9,34 @@ public class Student {
     private char gender;
     private Boolean isArmenian;
 
+    public Student() {
+    }
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public Student(String name, double mark) {
+        this.name = name;
+        this.mark = mark;
+    }
+
+    public Student(
+            String name,
+            String surname,
+            int year,
+            double mark,
+            char gender,
+            Boolean isArmenian
+            ) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.mark = mark;
+        this.gender = gender;
+        this.isArmenian = isArmenian;
+    }
+
     public String getName() {
         return name;
     }

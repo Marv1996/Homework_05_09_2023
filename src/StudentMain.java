@@ -1,6 +1,6 @@
 import Function.StudentFunction;
 import model.Student;
-import settings.StudentSettings;
+import service.StudentService;
 
 public class StudentMain {
 
@@ -8,32 +8,11 @@ public class StudentMain {
 
         StudentFunction studentFunction = new StudentFunction();
 
-        Student studentFirst = new StudentSettings().setStudentInfo(
-                "Koryun",
-                "Yenokyan",
-                1996,
-                8.8,
-                'M',
-                true
-        );
+        Student studentFirst = new StudentService().setStudentInfo();
 
-        Student studentSecond = new StudentSettings().setStudentInfo(
-                "Frank",
-                "Barton",
-                1998,
-                7.6,
-                'M',
-                false
-        );
+        Student studentSecond = new StudentService().setStudentInfo();
 
-        Student studentThird = new StudentSettings().setStudentInfo(
-                "Elina",
-                "Mickiewicz",
-                2001,
-                9.2,
-                'F',
-                false
-        );
+        Student studentThird = new StudentService().setStudentInfo();
 
         Student[] arrayStudents = {studentFirst, studentSecond, studentThird};
 
@@ -52,6 +31,9 @@ public class StudentMain {
         System.out.println("Low Mark");
         studentFunction.printLowMark(arrayStudents);
         System.out.println("------------------------------------------------------");
+        System.out.println("High Mark");
+        studentFunction.printHighMark(arrayStudents);
+        System.out.println("------------------------------------------------------");
         System.out.println("Find Male");
         studentFunction.findMaleStudent(arrayStudents);
         System.out.println("------------------------------------------------------");
@@ -62,5 +44,11 @@ public class StudentMain {
         studentFunction.findArmenianStudent(arrayStudents);
         System.out.println("------------------------------------------------------");
         studentThird.printFullName();
+        System.out.println("------------------------------------------------------");
+        System.out.println("Female student info");
+        studentFunction.findFemaleStudentInfo(studentFirst, studentSecond, studentThird);
+        System.out.println("------------------------------------------------------");
+        System.out.println("Smallest female student info");
+        studentFunction.findSmallestFemaleInfo(arrayStudents);
     }
 }

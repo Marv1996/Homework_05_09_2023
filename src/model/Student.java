@@ -13,12 +13,12 @@ public class Student {
     }
 
     public Student(String name) {
-        this.name = name;
+        this.setName(name);
     }
 
     public Student(String name, double mark) {
-        this.name = name;
-        this.mark = mark;
+        this.setName(name);
+        this.setMark(mark);
     }
 
     public Student(
@@ -28,13 +28,13 @@ public class Student {
             double mark,
             char gender,
             Boolean isArmenian
-            ) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.mark = mark;
-        this.gender = gender;
-        this.isArmenian = isArmenian;
+    ) {
+        this.setName(name);
+        this.setSurname(surname);
+        this.setYear(year);
+        this.setMark(mark);
+        this.setGender(gender);
+        this.setArmenian(isArmenian);
     }
 
     public String getName() {
